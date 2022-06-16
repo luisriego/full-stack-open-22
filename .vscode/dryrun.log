@@ -1,0 +1,8 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/luisriego/Projects/fso'
+echo 'usage: make [target]'
+echo
+echo 'targets:'
+egrep '^(.+)\:\ ##\ (.+)' makefile | column -t -c 2 -s ':#' | awk '{gsub("Makefile", "")}1'
+make: Leaving directory '/home/luisriego/Projects/fso'
+ 
