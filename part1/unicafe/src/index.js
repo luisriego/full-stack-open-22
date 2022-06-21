@@ -13,19 +13,24 @@ const Statistics = ({good, neutral, bad, total, average}) => {
   }
 
   return (
-    <>
-      <Statistic text="good" value={good} />
-      <p>neutral: {neutral}</p>
-      <p>bad: {bad}</p>
-      <p>all: {total}</p>
-      <p>average: {average / total}</p>
-      <p>positive: {good / total * 100} %</p>
-    </>
+    <table>
+      <tbody>
+        <Statistic text="good" value={good} />
+        <Statistic text="neutral" value={neutral} />
+        <Statistic text="bad" value={bad} />
+        <Statistic text="all" value={total} />
+        <Statistic text="average" value={average/total} />
+        <Statistic text="positive" value={good /total * 100 + " %"} /> 
+      </tbody>
+    </table>
   )
 }
 
 const Statistic = ({text, value}) => (
-  <p>{text}: {value}</p>
+  <tr>
+    <td>{text} </td> 
+    <td>{value}</td>
+  </tr>
 )
 
 const App = () => {
@@ -62,13 +67,6 @@ const App = () => {
       <Button text="bad" handleClick={handleClickBad} />
       <h1>statistics</h1>
       <Statistics good={good} neutral={neutral} bad={bad} total={total} average={average} />
-      {/* <h1>statistics</h1>
-      <p>good: {good}</p>
-      <p>neutral: {neutral}</p>
-      <p>bad: {bad}</p>
-      <p>all: {total}</p>
-      <p>average: {average/total}</p>
-      <p>positive: {good /total * 100} %</p> */}
     </div>
   )
 }
