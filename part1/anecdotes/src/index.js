@@ -3,15 +3,32 @@ import ReactDOM from 'react-dom/client';
 
 const App = ({anecdotes}) => {
   const [selected, setSelected] = useState(0)
+  const [votes, setVotes] = useState(Array(6).fill(0))
+
+//   const points = []
+
+//   const copy = [...points]
+// // increment the value in position 2 by one
+//   copy[2] += 1
 
   const generateRandom = (max) =>{
     return Math.floor(Math.random() * max);
   }
 
+  const voteAnecdote = (anecdote) => {
+    console.log(anecdote)
+    const copy = [...votes]
+// increment the value in position 2 by one
+    copy[anecdote] += 1
+    setVotes(copy)
+  }
+
   return (
     <div>
       <p>{anecdotes[(selected)]}</p>
-      <button onClick={() => setSelected(generateRandom(anecdotes.length -1))}>Next anecdote</button>
+      <p>has {votes[selected]} votes</p>
+      <button onClick={() => voteAnecdote(selected)}>vote</button>
+      <button onClick={() => setSelected(generateRandom(anecdotes.length))}>Next anecdote</button>
     </div>
   )
 }
