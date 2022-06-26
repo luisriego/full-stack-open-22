@@ -21,6 +21,11 @@ const App = () => {
         exercises: 14,
         id: 3,
       },
+      {
+        name: 'Redux',
+        exercises: 11,
+        id: 4,
+      },
     ],
   }
 
@@ -32,7 +37,7 @@ const Course = ({course}) => {
     <div>
       <Header course={course} />
       <Content parts={course.parts} />
-      {/* <Total parts={course.parts} /> */}
+      <Total parts={course.parts} />
     </div>
   )
 }
@@ -52,7 +57,6 @@ const Content = ({parts}) => {
 }
 
 const Part = ({part}) => {
-  console.log(part)
   return (
     <p>
       {part.name} {part.exercises}
@@ -60,11 +64,13 @@ const Part = ({part}) => {
   )
 }
 
-const Total = (props) => {
+const Total = ({parts}) => {
+  const sum = parts.reduce((partial, part) => partial + part.exercises, 0)
+console.log(sum)
   return (
-    <p>
-      Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}
-    </p>
+    <b>
+      total of {sum} exercises
+    </b>
   )
 }
 
