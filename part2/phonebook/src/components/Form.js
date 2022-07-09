@@ -6,7 +6,7 @@ const Form = ({persons, setPersons}) => {
 
   const addName = (event) => {
     event.preventDefault()
-    const personObj = [{ name: newName, phone: newPhone }]
+    const personObj = [{ name: newName, number: newPhone }]
     console.log(persons)
     if (persons.some(item => item.name === newName)) {
       return alert(`${newName} is already added to phonebook`)
