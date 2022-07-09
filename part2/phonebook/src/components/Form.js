@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
-const Form = (personsArray) => {
-  const [ persons, setPersons ] = useState(personsArray.persons) 
+const Form = ({persons, setPersons}) => {
   const [ newName, setNewName ] = useState('')
   const [ newPhone, setNewPhone ] = useState('')
 
   const addName = (event) => {
     event.preventDefault()
     const personObj = [{ name: newName, phone: newPhone }]
+    console.log(persons)
     if (persons.some(item => item.name === newName)) {
       return alert(`${newName} is already added to phonebook`)
     }
@@ -25,7 +25,7 @@ const Form = (personsArray) => {
     setNewPhone(event.target.value)
   }
 
-  return(
+  return (
     <form onSubmit={addName}>
       <div>
         name: <input 

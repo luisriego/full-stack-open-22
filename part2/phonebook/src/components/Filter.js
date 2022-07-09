@@ -1,7 +1,5 @@
-// import React, { useState } from 'react'
 
 const Filter = ({search, setSearch}) => {
-    // const [ search, setSearch ] = useState('')
 
     const handleSearchChange = (event) => {
         setSearch(event.target.value)
