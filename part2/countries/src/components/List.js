@@ -1,6 +1,6 @@
 import CountryDetails from "./CountryDetails"
 
-const Form = ({countries}) => {
+const List = ({countries}) => {
 
     if (countries.length > 10) {
         return (
@@ -9,12 +9,6 @@ const Form = ({countries}) => {
     }
 
     if (countries.length === 1) {
-        // const country = countries[0]
-        // const languages = []
-        // for (let value of Object.values(country.languages)) {
-        //     languages.push(value)
-        // }
-
         return (
             <CountryDetails country={countries[0]} />
             )
@@ -29,4 +23,4 @@ const Form = ({countries}) => {
     )
 }
 
-export default Form
+export default List
