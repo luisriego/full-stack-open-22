@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
 		<Filter search={search} setSearch={setSearch} />
-		<List countries={filter} />
+		<List countries={filter} setSearch={setSearch} />
     </div>
   )
 }

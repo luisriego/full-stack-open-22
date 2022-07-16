@@ -1,6 +1,10 @@
 import CountryDetails from "./CountryDetails"
 
-const List = ({countries}) => {
+const List = ({countries, setSearch}) => {
+
+    const handleView = (country) => {
+       setSearch(country)
+    }
 
     if (countries.length > 10) {
         return (
@@ -17,7 +21,8 @@ const List = ({countries}) => {
     return (
         countries.map(country => 
             <div key={country.name.common}>
-                {country.name.common}
+                {country.name.common} 
+                <button onClick={() => handleView(country.name.common)} type="button">view</button>
             </div> 
         )
     )
